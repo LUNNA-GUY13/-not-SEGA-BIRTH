@@ -57,7 +57,7 @@ class NotSegaBirth {
     }
 
     public void Run() {
-        Raylib.InitWindow(ScreenW * 2, ScreenH * 2, "(not)SEGA BIRTH - DevKit v1.0");
+        Raylib.InitWindow(ScreenW * 1, ScreenH * 1, "(not)SEGA BIRTH - DevKit v1.0");
         Raylib.SetTargetFPS(60);
 
         while (!Raylib.WindowShouldClose()) {
@@ -169,4 +169,5 @@ class Program {
     static void Main(string[] args) {
         new NotSegaBirth().Boot("game.BGF");
     }
+
 }
