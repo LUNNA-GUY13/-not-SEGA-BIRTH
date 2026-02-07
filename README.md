@@ -1,5 +1,5 @@
 # -not-SEGA-BIRTH
-A 16-bit fantasy console ecosystem under 100KB. Featuring a simulated and customized 68010 CPU (1.3x boost), LPN physics, and the proprietary .BGF binary format. Built for madmen who think 32KB of RAM is plenty
+A 16-bit fantasy console ecosystem based on the Sega Genesis. Featuring a simulated and customized 68010 CPU (1.3x boost), LPN physics, and the proprietary .BGF binary format. Built for madmen who think 32KB of RAM is plenty
 
 # (not)SEGA BIRTH Technical Specifications
 
@@ -7,14 +7,14 @@ A 16-bit fantasy console ecosystem under 100KB. Featuring a simulated and custom
 
 ## 1. Hardware Specifications
 
-| Component | Specification | Description |
-| --- | --- | --- |
-| **CPU** | Motorola 68010 (Simulated) | Features a 1.3x "Loop Mode" boost for high-frequency task execution. |
-| **Work RAM** | 32 KB | Maximum system memory; exceeding this limit results in a system crash. |
-| **Video RAM** | 64 KB | Dedicated to 4-bit Birth Tile Protocol (BTP) assets. |
+| Component | Specification | Description | Notes |
+| --- | --- | --- | --- |
+| **CPU** | Motorola 68010 (Simulated) | Features a 1.3x "Loop Mode" boost for high-frequency task execution. | It doesn't use the Motorola 68010 asm language look at `Opcode Reference` table|
+| **Work RAM** | 32 KB | Maximum system memory; exceeding this limit results in a system crash. | The Zilog 120 (last entry on this table) has 8 free kb's |
+| **Video RAM** | 64 KB | Dedicated to 4-bit Birth Tile Protocol (BTP) assets. | BTP: Instead of storing full RGBA values for every pixel, it stores bit-indices. If you use a 16-color palette, each pixel only takes up 4 bits ($2^4 = 16$)|
 | **Resolution** | 380 x 240 pixels | Widescreen format optimized for retro-style pixel art. | The screen size is doubled for visabilty in the .exe but not in the .cs file |
-| **Math** | LPN (Levitating Point) | 16.16 fixed-point logic for sub-pixel precision without an FPU. |
-| **Audio** | Zilog 120 (Simulated) | Supports raw PCM playback for sound effects and startup jingles. |
+| **Math** | LPN (Levitating Point) | 16.16 fixed-point logic for sub-pixel precision without an FPU. | LPN is this console's version of FPU look at the Register Map |
+| **Audio** | Zilog 120 (Simulated) | Supports raw PCM playback for sound effects and startup jingles. | The Z120 (Zilog 120) is not a real processor it's self-made |
 
 ## 2. System Architecture
 
@@ -43,21 +43,19 @@ The ISA utilizes a 16-bit linear execution model. Instructions are executed sequ
 | **0x08** | `DRAW_BTP` | None | Render VRAM tile at (RegA, RegX) coordinates. |
 | **0xFF** | `HALT` | None | Terminate CPU cycles for the current frame. |
 
-## 5. Development Workflow
-
-The total repository size is restricted to 100KB to prevent feature creep and bloat.
+## 4. Development Workflow
 
 ### Build Process
 
 Compile assembly and graphics into a bootable cartridge:
-`python builder.py game.asm hero.png`
+`python builder.py game.asm hero.png` or use the `BuildCart.bat` file
 
 ### Console Execution
 
 Initialize the virtual machine and load the `.BGF` file:
-`dotnet run`
+`dotnet run` 
 
-## 6. Credits and Dependencies
+## 5. Credits and Dependencies
 
 * **Raylib-cs**: Manages rendering, audio, and input cross-platform.
 * **Pillow (PIL)**: Executes PNG to BTP tile conversion and color dithering.
