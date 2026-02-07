@@ -10,7 +10,7 @@ A 16-bit fantasy console ecosystem based on the Sega Genesis. Featuring a simula
 | Component | Specification | Description | Notes |
 | --- | --- | --- | --- |
 | **CPU** | Motorola 68010 (Simulated) | Features a 1.3x "Loop Mode" boost for high-frequency task execution. | It doesn't use the Motorola 68010 asm language look at `Opcode Reference` table|
-| **Work RAM** | 32 KB | Maximum system memory; exceeding this limit results in a system crash. | The Zilog 120 (last entry on this table) has 8 free kb's |
+| **Work RAM** | 32 KB | Maximum system memory; exceeding this limit results in a system crash. | The Zilog 120 (last entry on this table) doesn't get used for anything right now in the only example |
 | **Video RAM** | 64 KB | Dedicated to 4-bit Birth Tile Protocol (BTP) assets. | BTP: Instead of storing full RGBA values for every pixel, it stores bit-indices. If you use a 16-color palette, each pixel only takes up 4 bits ($2^4 = 16$)|
 | **Resolution** | 380 x 240 pixels | Widescreen format optimized for retro-style pixel art. | The screen size is doubled for visabilty in the .exe but not in the .cs file |
 | **Math** | LPN (Levitating Point) | 16.16 fixed-point logic for sub-pixel precision without an FPU. | LPN is this console's version of FPU look at the Register Map |
