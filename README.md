@@ -43,13 +43,6 @@ The ISA utilizes a 16-bit linear execution model. Instructions are executed sequ
 | **0x08** | `DRAW_BTP` | None | Render VRAM tile at (RegA, RegX) coordinates. |
 | **0xFF** | `HALT` | None | Terminate CPU cycles for the current frame. |
 
-## 4. Licensing and "Birth Jingle" Requirement
-
-(not)SEGA BIRTH is distributed under the MIT License. A mandatory social contract requires all forks and redistributions to include a startup audio file (`untitled.wav`).
-
-* **Requirement**: The audio must play upon system initialization.
-* **Content**: A vocalization or synthesized sound referencing "BIRTH" or "SEG... I MEAN BIRTHHH".
-
 ## 5. Development Workflow
 
 The total repository size is restricted to 100KB to prevent feature creep and bloat.
