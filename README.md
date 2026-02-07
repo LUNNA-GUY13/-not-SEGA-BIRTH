@@ -12,7 +12,7 @@ A 16-bit fantasy console ecosystem under 100KB. Featuring a simulated and custom
 | **CPU** | Motorola 68010 (Simulated) | Features a 1.3x "Loop Mode" boost for high-frequency task execution. |
 | **Work RAM** | 32 KB | Maximum system memory; exceeding this limit results in a system crash. |
 | **Video RAM** | 64 KB | Dedicated to 4-bit Birth Tile Protocol (BTP) assets. |
-| **Resolution** | 380 x 240 pixels | Widescreen format optimized for retro-style pixel art. |
+| **Resolution** | 380 x 240 pixels | Widescreen format optimized for retro-style pixel art. | The screen size is doubled for visabilty in the .exe but not in the .cs file |
 | **Math** | LPN (Levitating Point) | 16.16 fixed-point logic for sub-pixel precision without an FPU. |
 | **Audio** | Zilog 120 (Simulated) | Supports raw PCM playback for sound effects and startup jingles. |
 
